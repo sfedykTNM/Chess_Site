@@ -1,0 +1,49 @@
+.login {
+    display:inline-block;
+    text-align: center;
+    border-width: 2px;
+    padding: 30px;
+    float: left;
+}
+
+.input_button {
+    display: block;
+    border-radius: 12px;
+    border: 2px solid #282c34;
+    padding: 10px;
+    width: 200px;
+    height: 15px;
+    margin-top: 10px;
+    text-align: center;
+    background-position: center;
+    transition: background 0.2s
+}
+
+.input_button:hover {
+    background: #4f5969 radial-gradient(circle, transparent 1%, #4f5969 1%) center/15000%;
+    color: white;
+}
+
+.login_button {
+    display: inline-block;
+    background-color: white;
+    border: 2px solid #282c34;
+    border-radius: 12px;
+    width: 224px;
+    height: 37px;
+    margin-top: 10px;
+    text-align: center;
+    background-position: center;
+    transition: background 0.2s
+}
+
+.login_button:hover {
+    background: #4f5969 radial-gradient(circle, transparent 1%, #4f5969 1%) center/15000%;
+    color: white;
+}
+.login_button:active {
+    background-color: white;
+    background-size: 100%;
+    transition: background 0s;
+}
+

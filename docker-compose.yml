@@ -1,0 +1,40 @@
+networks:
+  db:
+services:
+  frontend:
+    image: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - default
+    volumes:
+      - ./chess-react-frontend/src:/app/src
+
+  backend:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    image: backend
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+      - db
+    volumes:
+      - ./chess-node-backend/src:/app/src
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+    volumes:
+      - ./postgres/pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
